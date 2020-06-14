@@ -25,8 +25,8 @@ mongoose.connect('mongodb://pruebas:abc123.@ds119572.mlab.com:19572/heroku_23f3w
     app.get('/*', function (req, res) {
         res.sendFile(path.join(__dirname + '/dist/angularFront/index.html'));
     });
-    app.listen(3000, function () {
-        console.log("http://localhost:3000");
+    app.listen(process.env.PORT, function () {
+        console.log("http://localhost:' + process.env.PORT +'");
     });
 });
 
