@@ -23,7 +23,7 @@ mongoose.connect('mongodb://pruebas:abc123.@ds119572.mlab.com:19572/heroku_23f3w
         console.log('ERROR: connecting to Database. ' + err);
     }
     app.get('/*', function (req, res) {
-        res.sendFile(path.join(__dirname + '/dist/MY_APP_NAME_HERE/index.html'));
+        res.sendFile(path.join(__dirname + '/dist/angularFront/index.html'));
     });
     app.listen(3000, function () {
         console.log("http://localhost:3000");
