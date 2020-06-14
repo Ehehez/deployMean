@@ -13,11 +13,11 @@ const cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+/*app.use(bodyParser.json());
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/angularFront/index.html'));
 });
-app.use(express.static(__dirname + '/dist/angularFront'));
+app.use(express.static(__dirname + '/dist/angularFront'));*/
 
 require('./models/user.model'); //mongodb://localhost:27017/app
 
