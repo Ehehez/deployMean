@@ -6,15 +6,18 @@ var user = require('./routers/user.router')
 var post = require('./routers/post.router');
 var page = require('./routers/page.router');
 var rating = require('./routers/postRating.router');
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+/*var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));*/
 
 const cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname + '/dist/angularFront/index.html'));
+});
+app.use(express.static(__dirname + '/dist/angularFront'));
 
 require('./models/user.model'); //mongodb://localhost:27017/app
 
@@ -22,9 +25,7 @@ mongoose.connect('mongodb://pruebas:abc123.@ds119572.mlab.com:19572/heroku_23f3w
     if (err) {
         console.log('ERROR: connecting to Database. ' + err);
     }
-    app.get('/*', function (req, res) {
-        res.sendFile(path.join(__dirname + '/dist/angularFront/index.html'));
-    });
+
     app.listen(3000, function () {
         console.log("http://localhost:3000");
     });
