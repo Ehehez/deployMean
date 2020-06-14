@@ -6,7 +6,7 @@ var user = require('./routers/user.router')
 var post = require('./routers/post.router');
 var page = require('./routers/page.router');
 var rating = require('./routers/postRating.router');
-var distDir = __dirname + "/dist/";
+var distDir = __dirname + "/dist/angularFront";
 app.use(express.static(distDir));
 
 const cors = require('cors');
